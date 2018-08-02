@@ -12,7 +12,6 @@ py_image(
 	main="fetch.py",
 )
 
-
 container_image(
     name="distroless_with_env",
     base="@py_image_base//image",
@@ -26,3 +25,9 @@ py_image(
     main = "fetch.py",
     base = ":distroless_with_env",
 )
+
+py_image(
+	name = "fetch_with_latest_distroless",
+	srcs = ["fetch.py"],
+	main = "fetch.py",
+	base = "@recent_python_base//image")
